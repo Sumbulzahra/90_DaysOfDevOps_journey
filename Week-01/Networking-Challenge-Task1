@@ -1,0 +1,42 @@
+# 🌐 Week 1: Networking Challenge - Task 1
+## Mastering the OSI & TCP/IP Models
+
+Welcome to the first task of my #90DaysOfDevOps journey! Today, I focused on the fundamental "plumbing" of the internet: understanding how data travels across a network using the OSI and TCP/IP models.
+
+---
+
+## 📖 Overview
+In DevOps, networking knowledge is critical for troubleshooting connectivity issues, configuring cloud security groups, and managing microservices. 
+
+### The Two Models:
+1. OSI Model (Theoretical): A 7-layer framework used to standardize the functions of a computing system.
+2. TCP/IP Model (Practical): A 4-layer model that represents the actual protocols used on the internet today.
+
+---
+
+## 🛠️ Mapping Layers to Real-World Scenarios
+
+| OSI Layer | TCP/IP Layer | Purpose | Real-World Example |
+| :--- | :--- | :--- | :--- |
+| 7. Application | Application | User Interface & Services | Accessing a website via HTTP/HTTPS |
+| 6. Presentation | Application | Data Encryption & Formatting | SSL/TLS encrypting login credentials |
+| 5. Session | Application | Connection Management | Maintaining a login session on a portal |
+| 4. Transport | Transport | End-to-end communication | TCP ensuring data arrives without errors |
+| 3. Network | Internet | Routing & IP Addressing | IP Addresses routing packets across VPCs |
+| 2. Data Link | Network Access | MAC Addressing | Ethernet frames moving within a LAN |
+| 1. Physical | Network Access | Physical Hardware | Fiber optic cables or Wi-Fi signals |
+
+---
+
+## 💡 Why This Matters for DevOps
+Understanding these layers allows me to troubleshoot systematically:
+* Application Issue? Check the HTTP status codes (4xx/5xx).
+* Connectivity Issue? Check if the Port (Layer 4) is open in the Security Group.
+* Routing Issue? Check the IP tables or Route Tables (Layer 3).
+
+---
+
+## 🚀 Next Steps
+Now that the foundation is set, I will move on to Task 2: Protocols and Ports for DevOps, where I'll dive deeper into specific communication standards like SSH, DNS, and FTP.
+Please check my Linkedin post for further information https://www.linkedin.com/posts/miss-sumbulzahra_devops-networking-learning-activity-7429736465032646656-o1x6?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGNeYcIBTq8_zKD1l9colfmUpGqHq25PqdY
+
