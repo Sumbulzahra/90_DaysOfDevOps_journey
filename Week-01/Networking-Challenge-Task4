@@ -1,1 +1,51 @@
-task
+# 🛠️ Task 4: Hands-On with Networking Commands
+
+## 📋 Task Requirements
+The objective of this task is to practice and document essential networking commands used for troubleshooting and verifying connectivity.
+
+### Commands to Master:
+1. ping: Check if a host is reachable.
+2. traceroute / tracert: Trace the path packets take to a destination.
+3. netstat: View active network connections and listening ports.
+4. curl: Transfer data from or to a server (used for testing APIs/Websites).
+5. dig / nslookup: Query DNS name servers for IP mapping.
+
+---
+
+## 💻 Networking Commands Cheat Sheet
+
+### 1. Connectivity Check (ping)
+Used to test if a remote server is "alive" and to check for latency.
+* Example: ping google.com
+* Usage: Determines if there is a basic connection between your machine and the target.
+
+### 2. Path Tracking (traceroute)
+Identifies every "hop" (router) your data passes through to reach a destination.
+* Example: traceroute google.com (Linux/Mac) or tracert google.com (Windows)
+* Usage: Great for finding exactly where a connection is being dropped in a network.
+
+### 3. Network Statistics (netstat)
+Displays all active network connections and which ports are currently "listening" on your machine.
+* Example: netstat -tuln
+* Usage: Essential for verifying if your web server or database is actually running on the expected port.
+
+### 4. Web Requests (curl)
+A powerful tool to interact with web servers directly from the terminal.
+* Example: curl -I https://aws.amazon.com
+* Usage: Used to check HTTP response headers (like 200 OK or 404 Not Found) without a browser.
+
+### 5. DNS Lookup (dig)
+Queries DNS servers to see which IP address a domain name points to.
+* Example: dig google.com
+* Usage: Used to verify if DNS records have propagated or if a domain is pointing to the correct Load Balancer.
+
+---
+
+## 💡 Troubleshooting Workflow
+As a DevOps Engineer, I use these in sequence:
+1. ping to see if the server is up.
+2. telnet or nc to see if the specific port is open.
+3. curl to see if the application is responding correctly.
+4. dig if I suspect the domain name is pointing to the wrong IP.
+
+> **Task Status:** Completed. I have tested these commands on my local machine and EC2 instance to build my troubleshooting toolkit. ✅
