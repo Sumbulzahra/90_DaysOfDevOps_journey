@@ -1,1 +1,32 @@
-task
+# ☁️ Task 3: AWS EC2 and Security Groups
+
+## 🎯 Objective
+To launch a virtual server (EC2) and implement network security using AWS Security Groups. This task bridges the gap between networking theory and cloud infrastructure.
+
+---
+
+## 🛠️ Step-by-Step Guide
+
+### 1. Launching the Instance
+* AMI: Amazon Linux 2023 (Free Tier eligible).
+* Instance Type: t2.micro.
+* Key Pair: Created and downloaded a .pem file for secure SSH access via terminal.
+
+### 2. Configuring the Firewall (Security Groups)
+I created a custom Security Group to act as a virtual firewall for the instance. The rules were configured as follows:
+
+* SSH (Port 22): Allowed access only from my specific IP address for secure administration.
+* HTTP (Port 80): Opened to 0.0.0.0/0 to allow public web traffic.
+* HTTPS (Port 443): Opened to 0.0.0.0/0 for secure, encrypted web traffic.
+* Outbound Rules: Left as default (Allow All) to allow the server to fetch updates.
+
+### 3. Verification
+* Successfully connected to the instance using the command: ssh -i "private-key.pem" ec2-user@public-ip
+* Verified that only the specified ports were accessible, confirming the security group was functioning correctly.
+
+---
+
+## 🧠 Key Learning
+Security Groups are stateful. This means if an inbound request is allowed on a specific port, the outbound response is automatically allowed, regardless of outbound rules. This is a critical concept for managing cloud traffic efficiently.
+
+> **Task Status:** Completed. Instance is live, secured, and accessible. ✅
