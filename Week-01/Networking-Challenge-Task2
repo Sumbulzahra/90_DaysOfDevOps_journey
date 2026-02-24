@@ -1,1 +1,19 @@
-Task2
+# 📂 Task 2: Protocols and Ports for DevOps
+
+Understanding protocols is the key to securing and connecting infrastructure.
+
+### 🔑 Essential Protocols Cheat Sheet
+
+* SSH (22): The gateway for remote server management.
+* HTTP (80) & HTTPS (443): The foundation of web communication.
+* DNS (53): The internet's phonebook.
+* Database Ports: 3306 (MySQL), 5432 (Postgres), 6379 (Redis).
+
+### 💡 DevOps Relevance
+In a CI/CD pipeline, we often need to:
+
+1. Open ports in a firewall (Security Groups) to allow application traffic.
+2. Forward ports in Docker containers (e.g., -p 8080:80).
+3. Debug connectivity using tools like telnet or nc (netcat).
+
+> **Task Completed:** I have researched and documented the most common ports used in modern cloud environments.
