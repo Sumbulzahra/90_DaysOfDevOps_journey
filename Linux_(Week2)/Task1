@@ -1,49 +1,15 @@
-# Week 2: Linux System Administration & Automation 🚀
+# Task 1: User & Group Management 👤
 
-## 90 Days of DevOps - 2025 Edition
+## Objective
+To establish a secure, multi-user environment by implementing proper user categorization, administrative privileges, and SSH hardening.
 
-This repository contains my progress for Week 2, focusing on production-level Linux administration, log analysis, and shell scripting automation.
+## Steps Performed
 
----
+### 1. Group & User Creation
+I created a dedicated group for the DevOps team and added a specific user to it to ensure organized permission management.
+```bash
+# Create the group
+sudo groupadd devops_team
 
-## 🛠️ Tasks Performed
-
-### 1. User & Group Management
-- **Created User/Group:** `groupadd devops_team` & `useradd -m -g devops_team devops_user`.
-- **Privileges:** Added to sudoers using `usermod -aG sudo devops_user`.
-- **Security:** Modified `/etc/ssh/sshd_config` to restrict login access (e.g., `DenyUsers bad_actor`).
-
-### 2. File & Directory Permissions
-- **Setup:** Created `/devops_workspace` and `project_notes.txt`.
-- **Permissions:** Applied `chmod 640 project_notes.txt`.
-    - Owner: Read/Write (6)
-    - Group: Read (4)
-    - Others: No Access (0)
-
-### 3. Log Analysis (AWK, Grep, Sed)
-Using the `Linux_2k.log` dataset:
-- **Filtering:** `grep "error" Linux_2k.log`
-- **Extraction:** `awk '{print $1, $2, $3, $6}' Linux_2k.log` (Timestamps and Levels).
-- **Security Masking:** `sed -i 's/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}/[REDACTED]/g' Linux_2k.log`.
-- **Insight:** Found the most frequent log entries using `sort | uniq -c | sort -nr | head -10`.
-
-### 4. Volume Management
-- **Mounting:** Created a mount point at `/mnt/devops_data`.
-- **Verification:** Verified storage allocation using `df -h`.
-
-### 5. Process Monitoring
-- **Execution:** Ran a background ping process: `ping google.com > ping_test.log &`.
-- **Management:** Monitored via `top` and terminated using `kill [PID]`.
-
-### 6. Automation Script
-I developed a shell script `backup.sh` that:
-1. Compresses `/devops_workspace`.
-2. Appends the current date to the filename.
-3. Outputs a "Success" message in green text.
-4. **Cron Job:** Scheduled to run daily at Midnight: `0 0 * * * /path/to/backup.sh`.
-
----
-
-## 🚀 Bonus Challenges Completed
-- [x] Extracted only **ERROR** and **WARNING** logs using `awk`.
-- [x] Used `find / -mtime -7` to identify files modified in the last week.
+# Create the user and assign to the group
+sudo useradd -m -g devops_team devops_user
