@@ -1,0 +1,44 @@
+💾 Task 4: Volume Management & Disk Usage
+🏗️ Managing Storage and Mount Points in Linux
+**DevOps Engineer:** [Sumbul Zahra](https://www.linkedin.com/in/miss-sumbulzahra/) 🚀
+
+---
+
+🎯 Project Overview
+Effective storage management ensures that data is organized and that applications never run out of disk space.
+In this task, I practiced creating mount points, mounting storage devices, and monitoring disk health.
+
+---
+
+🛠️ Step-by-Step Implementation
+
+1. Creating the Mount Point
+A mount point is simply a directory where a storage device "plugs into" the Linux file system.
+Bash
+sudo mkdir -p /mnt/devops_data
+
+2. Mounting a Volume
+In a production environment, this would be an external SSD or a Cloud Volume (EBS). 
+For practice, you can mount an existing partition or a loop device.
+Bash
+Example: Mounting a specific partition
+sudo mount /dev/sdb1 /mnt/devops_data
+
+3. Verifying the Mount
+It is essential to confirm the system recognizes the new storage.
+Bash
+df -h        Purpose: Displays disk space usage in human-readable format (GB/MB).
+Bash
+mount | grep devops_data       Purpose: Confirms that the specific directory is correctly mapped to a device.
+
+
+🧠 Key Commands Learned
+df -h: Check how much space is left on all mounted filesystems.
+du -sh: Check the size of a specific directory.
+mount: Connect a physical device to the file tree.
+umount: Safely disconnect a device.
+
+🔗 Connect with Me
+Let's talk Infrastructure and Storage!
+👉 LinkedIn: https://www.linkedin.com/in/miss-sumbulzahra/)
+ 
