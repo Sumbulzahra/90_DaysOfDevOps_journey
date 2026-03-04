@@ -1,0 +1,49 @@
+Task 5: Process Management & Monitoring
+🕵️‍♂️ Monitoring and Controlling System Resources
+DevOps Engineer: Sumbul Zahra 🚀
+
+Project Overview
+A DevOps Engineer must ensure that applications are running smoothly. 
+If a process consumes too much CPU or hangs, we need the skills to identify it (PID) and terminate it safely.
+In this task, I managed background processes and monitored system health in real-time.
+
+Step-by-Step Implementation
+Starting a Background Process
+I initiated a long-running process and redirected the output so it wouldn't clutter the terminal.
+
+Bash
+ping google.com > ping_test.log &
+The & at the end sends the process to the background.
+
+Monitoring the Process
+I used three different tools to observe the system:
+
+ps aux: A snapshot of all running processes.
+
+top: A dynamic, real-time view of system resources.
+
+htop: An interactive and more visual process viewer.
+
+Terminating the Process
+First, I found the Process ID (PID) using grep, then I stopped it.
+
+Bash
+ps aux | grep ping
+# Locate the PID from the output
+kill <PID_NUMBER>
+Final Verification
+Ensuring the process is no longer active:
+
+Bash
+ps aux | grep ping
+Key Commands Learned
+top / htop: Real-time system monitoring.
+
+ps aux: Listing all active processes.
+
+kill: Terminating a process by its ID.
+
+jobs: Viewing tasks running in the current shell session.
+
+Connect with Me
+👉 LinkedIn: https://www.linkedin.com/in/miss-sumbulzahra/
