@@ -1,0 +1,27 @@
+# 📂 Task 2: Advanced File & Directory Permissions
+### 🛡️ Implementing the Principle of Least Privilege (PoLP)
+
+In Linux administration, managing who can read, write, or execute a file is the first line of defense. This task demonstrates how to secure a workspace so that only authorized team members can interact with project data.
+
+---
+
+## 🎯 Objectives
+1. Create a dedicated workspace directory: `/devops_workspace`.
+2. Generate a project file: `project_notes.txt`.
+3. Apply specific security constraints:
+   - **Owner:** Full Edit (Read + Write)
+   - **Group:** Read Only
+   - **Others:** No Access (Total Restriction)
+
+---
+
+## 🛠️ Step-by-Step Implementation
+
+### Step 1: Resource Creation
+We start by creating the directory and the file. Using `sudo` ensures we have the administrative rights to create folders in the root directory.
+
+```bash
+sudo mkdir /devops_workspace
+sudo touch /devops_workspace/project_notes.txt
+
+**DevOps Engineer:** [Sumbul Zahra](https://www.linkedin.com/in/miss-sumbulzahra/) 🚀
