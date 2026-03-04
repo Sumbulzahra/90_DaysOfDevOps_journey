@@ -1,0 +1,57 @@
+📊 Task 3 
+Log File Analysis with AWK, Grep & Sed
+🛠️ Extracting Insights from Production Logs
+
+---
+
+🎯 Project Overview
+In DevOps, logs are the heartbeat of an application.
+Being able to parse thousands of lines of logs to find a single error is a critical skill. 
+In this task, I analyzed the `Linux_2k.log` file to identify errors, extract timestamps, and redact sensitive information.
+
+---
+
+🛠️ Step-by-Step Implementation
+
+1. Data Acquisition
+I used the standard `Linux_2k.log` dataset from LogHub for this analysis.
+```bash
+wget [https://raw.githubusercontent.com/logpai/loghub/master/Linux/Linux_2k.log](https://raw.githubusercontent.com/logpai/loghub/master/Linux/Linux_2k.log)
+
+2. Hunting for Errors (grep)
+The first step in troubleshooting is finding where things went wrong.
+Bash
+grep -i "error" Linux_2k.log
+Purpose: Filters all lines containing "error" (case-insensitive).
+
+3. Extracting Timestamps & Log Levels (awk)
+To get a cleaner view, I used awk to print only the specific columns needed.
+Bash
+awk '{print $1, $2, $3, $6}' Linux_2k.log
+Purpose: Extracts the Month, Day, Time, and the Log Level/Service.
+
+4. Security Masking / Redaction (sed)
+For security compliance (like GDPR), IP addresses should often be hidden in shared logs.
+Bash
+sed -E 's/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[REDACTED]/g' Linux_2k.log > redacted_linux.log
+Purpose: Replaces all IPv4 patterns with the text [REDACTED].
+
+🏆 Bonus Challenge: Frequency Analysis
+I wanted to find the Top 10 most frequent log entries to identify recurring issues.
+Bash
+awk '{ $1=$2=$3=""; print $0 }' Linux_2k.log | sort | uniq -c | sort -nr | head -10
+
+---
+
+🧠 Key Tools Learned
+Grep: The ultimate search tool for patterns.
+
+Awk: A powerful text-processing language for columns and rows.
+
+Sed: The stream editor used for transforming and filtering text.
+
+---
+
+🔗 Connect with Me
+Let's talk DevOps and Data!
+👉 LinkedIn: Sumbul Zahra](https://www.linkedin.com/in/miss-sumbulzahra/
