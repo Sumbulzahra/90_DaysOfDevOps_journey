@@ -1,0 +1,65 @@
+Task 6: Automating Backups with Shell Scripting 🤖
+🔄 System Automation and Cron Scheduling
+
+Project Overview
+Manual backups are prone to human error. In this task, I developed a Bash script to automate the backup of the /devops_workspace directory. I also configured a cron job to ensure the system handles backups automatically at scheduled intervals.
+
+---
+
+Step-by-Step Implementation
+1 Create the Backup Directory
+Bash
+sudo mkdir -p /backups
+
+---
+
+2 Write the Shell Script
+I created a script named backup.sh that compresses files and uses a dynamic timestamp for the filename.
+Bash
+
+#!/bin/bash
+
+# Variables
+SOURCE_DIR="/devops_workspace"
+BACKUP_DIR="/backups"
+TIMESTAMP=$(date +%F_%H-%M-%S)
+FILENAME="backup_$TIMESTAMP.tar.gz"
+
+# Create the backup
+tar -czf $BACKUP_DIR/$FILENAME $SOURCE_DIR
+
+# Display success message in Green
+echo -e "\e[32m✅ Success: Backup created at $BACKUP_DIR/$FILENAME\e[0m"
+
+---
+
+3 Set Executive Permissions
+For the script to run, it needs execution rights.
+Bash
+chmod +x backup.sh
+
+---
+
+4 Automate with Cron
+I scheduled the script to run every day at midnight.
+Bash
+crontab -e
+# Add this line at the bottom:
+0 0 * * * /path/to/your/backup.sh
+
+---
+
+Key Concepts Learned
+
+Variables: Using SOURCE_DIR and TIMESTAMP to make scripts reusable.
+
+Tar: Compressing files to save storage space.
+
+Echo Colors: Using escape codes (\e[32m) to make terminal output user-friendly.
+
+Cron: The Linux time-based job scheduler.
+
+---
+
+Connect with Me
+👉 LinkedIn: https://www.linkedin.com/in/miss-s-zahra/
