@@ -1,0 +1,109 @@
+
+
+🚀 Task 1: Fork and Clone the Repository
+
+*Goal:* Create your own copy of the project on GitHub and bring it to your local machine.
+1. Fork: Go to the target repository on GitHub and click the *Fork* button (top right). This creates a copy under your username.
+2. Clone: Open your terminal and run:
+```bash
+git clone https://github.com/<your-username>/90DaysOfDevOps.git
+cd 2025/git/01_Git_and_Github_Basics
+
+```
+Note: Replace `<your-username>` with your actual GitHub handle.
+
+---
+
+📁 Task 2: Initialize and Create a File
+
+Goal: Practice starting a Git project from scratch locally.
+1. Create Directory:
+```bash
+mkdir week-4-challenge
+cd week-4-challenge
+```
+2. Initialize Git: This creates a hidden `.git` folder that tracks your changes.
+```bash
+git init
+```
+3. Create File:
+```bash
+echo "Name: [Your Name] | Role: DevOps Learner" > info.txt
+```
+4. Stage & Commit: Staging is like putting items in a box; committing is sealing the box and labeling it.
+```bash
+git add info.txt
+git commit -m "Initial commit: Add info.txt with introductory content"
+```
+
+🔑 Task 3: Configure Remote & Push (HTTPS/PAT)
+
+Goal: Connect your local folder to your GitHub repository using a Personal Access Token.
+
+1. Generate PAT: Go to GitHub Settings > Developer Settings > Personal Access Tokens (classic). Generate one with `repo` permissions.
+2. Set Remote URL:
+```bash
+git remote add origin https://<your-username>:<your-PAT>@github.com/<your-username>/90DaysOfDevOps.git
+```
+3. Push: Send your local code to GitHub.
+```bash
+git push -u origin main
+```
+
+---
+
+📜 Task 4: Explore Commit History
+
+Goal: Review the timeline of your project.
+1. Check Log:
+```bash
+git log --oneline
+```
+This shows a simplified version of your history. Copy the 7-character hash (e.g., `a1b2c3d`) for your documentation.*
+
+---
+
+🌿 Task 5: Advanced Branching
+
+Goal: Work on a "feature" without affecting the main code.
+1. Create and Switch Branch:
+```bash
+git checkout -b feature-update
+```
+2. Modify File: Open `info.txt` and add a line about your Week 4 goals.
+3. Commit & Push:
+```bash
+git add info.txt
+git commit -m "Feature update: Enhance info.txt with additional details"
+git push origin feature-update
+```
+4. Pull Request (PR): Go to your GitHub repo.
+You’ll see a yellow bar saying "feature-update had recent pushes.
+" Click Compare & pull request to merge it into `main`.
+
+---
+
+🧠 Task 6: Critical Thinking (For your `solution.md`)
+
+Why are branching strategies important?
+
+In a professional environment (or a high-level gaming team), 
+you don't want everyone changing the "master plan" at once. Branching allows:
+  Isolation: You can experiment with a new tool without breaking the working app.
+  Collaboration: Multiple people can work on different tasks (Task A, Task B) simultaneously.
+  Review: Code is checked by others before it goes "Live" (Production).
+
+---
+
+🛡️ Bonus: SSH Authentication
+Goal: Remove the need for tokens/passwords entirely.
+1. Generate Key: `ssh-keygen -t ed25519 -C "your_email@example.com"` (Press Enter for all prompts).
+2. Copy Public Key: `cat ~/.ssh/id_ed25519.pub`
+3. Add to GitHub: Paste this into *Settings > SSH and GPG keys*.
+4. Update Remote:
+```bash
+git remote set-url origin git@github.com:<your-username>/90DaysOfDevOps.git
+git push origin feature-update
+```
+
+---
