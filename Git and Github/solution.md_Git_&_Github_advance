@@ -1,52 +1,105 @@
- ## Git and GitHub Advanced Challenge: Week 4
 
-This repository contains the documentation and task solutions for the Week 4 Advanced Git Challenge. The focus of this challenge is to master professional DevOps workflows, including pull requests, history management, and branching strategies.
 
-## Objective
-The goal of this challenge is to move beyond basic commits and understand how to manage complex codebases, undo mistakes safely, and maintain a clean project history.
+Git and GitHub Advanced Challenge Week 4
 
-## Topics Covered
-* Pull Requests: Effective team collaboration and code reviews.
-* Reset and Revert: Managing and undoing changes at different stages.
-* Stashing: Temporary storage of uncommitted work.
-* Cherry-picking: Applying specific commits across branches.
-* Rebasing: Maintaining a linear and clean commit history.
-* Branching Strategies: Industry-standard workflows (Git Flow, GitHub Flow, Trunk-Based).
+This repository contains the documentation and practical implementation of advanced Git concepts required for DevOps workflows.
 
-## Challenge Tasks
+Task 1: Working with Pull Requests
 
-### Task 1: Working with Pull Requests (PRs)
-* Forked the repository and cloned it locally.
-* Created a feature branch to isolate new development.
-* Pushed changes and opened a formal Pull Request on GitHub.
-* Documented the PR lifecycle, including descriptions and review handling.
+Scenario: Forking a repository and managing a feature through a Pull Request.
+```bash
+git clone <your-forked-repo-url>
+cd <repo-name>
+git checkout -b feature-branch
+echo "New Feature" >> feature.txt
+git add .
+git commit -m "Added a new feature"
+git push origin feature-branch
 
-### Task 2: Undoing Changes - Reset and Revert
-* Explored Soft, Mixed, and Hard resets to understand how they affect the HEAD, Index, and Working Directory.
-* Utilized `git revert` to safely undo changes on public branches without rewriting history.
+```
 
-### Task 3: Stashing
-* Used `git stash` to save incomplete work-in-progress (WIP).
-* Demonstrated switching branches and re-applying stashed changes using `git stash pop`.
+Task 2: Undoing Changes - Reset and Revert
+Scenario: Managing accidental commits using different reset modes and safe reverts.
+```bash
+echo "Wrong code" >> wrong.txt
+git add .
+git commit -m "Committed by mistake"
 
-### Task 4: Cherry-Picking
-* Identified specific bug-fix commits using `git log`.
-* Applied individual commits to the current branch using `git cherry-pick`.
+Soft Reset: keeps changes staged
+git reset --soft HEAD~1
 
-### Task 5: Rebasing
-* Updated a feature branch by rebasing it onto the main branch.
-* Handled merge conflicts during the rebase process to ensure a linear history.
+Mixed Reset: unstages changes but keeps files
+git reset --mixed HEAD~1
 
-### Task 6: Branching Strategies
-* Researched and implemented simulations for:
-    * Git Flow (Feature, Release, Hotfix).
-    * GitHub Flow (Agile, continuous delivery).
-    * Trunk-Based Development (High-velocity CI/CD).
+Hard Reset: removes all changes
+git reset --hard HEAD~1
 
-## Repository Structure
-* solution.md: Detailed technical explanations and step-by-step logs for each task.
-* scripts/: (Optional) Any scripts used during the simulation.
+Revert: safely undoes a commit by creating a new one
+git revert HEAD
 
-## How to Use
-1. Clone this repository.
-2. Navigate to the solution.md file to view the detailed technical documentation for each task.
+```
+
+Task 3: Stashing - Save Work Without Committing
+Scenario: Saving uncommitted work temporarily to switch branches.
+```bash
+echo "Temporary Change" >> temp.txt
+git add temp.txt
+git stash
+git checkout main
+git stash pop
+
+```
+
+Task 4: Cherry-Picking - Selectively Apply Commits
+Scenario: Applying a specific bug fix commit from another branch.
+```bash
+git log --oneline
+git cherry-pick <commit-hash>
+# If conflicts occur:
+git cherry-pick --continue
+
+```
+
+Task 5: Rebasing - Keeping a Clean Commit History
+Scenario: Updating a feature branch without creating extra merge commits.
+```bash
+git fetch origin main
+git rebase origin/main
+# If conflicts occur:
+git rebase --continue
+
+```
+
+Task 6: Branching Strategies
+Scenario: Implementing real-world DevOps branching workflows.
+```bash
+git branch feature-1
+git branch hotfix-1
+git checkout feature-1
+
+```
+
+Submission Commands
+```bash
+git add .
+git commit -m "Completed Git & GitHub Advanced Challenge"
+git push origin main
+
+```
+
+---
+
+LinkedIn Post
+Headline: Mastered Advanced Git Workflows for DevOps
+This week, I completed the Git & GitHub Advanced Challenge as part of my #90DaysOfDevOps journey. 
+Understanding how to manage a clean history and collaborate effectively is crucial for any DevOps Engineer.
+
+Key highlights of what I implemented:
+1. Advanced Undo Operations: Mastered the difference between Soft, Mixed, and Hard Resets, along with safe Reverts for public branches.
+2. Clean History: Used Git Rebasing to maintain a linear commit history and Cherry-Picking to move specific bug fixes between branches.
+3. Work Management: Implemented Git Stash to handle urgent branch switches without losing progress.
+4. Strategy: Explored Git Flow, GitHub Flow, and Trunk-Based Development to understand which works best for CI/CD pipelines.
+
+Efficient version control is more than just pushing code; it is about maintaining a reliable and readable history for the whole team.
+
+#90DaysOfDevOps #Git #GitHub #VersionControl #DevOps #CI_CD #TechLearning
