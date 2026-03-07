@@ -1,0 +1,52 @@
+ ## Git and GitHub Advanced Challenge: Week 4
+
+This repository contains the documentation and task solutions for the Week 4 Advanced Git Challenge. The focus of this challenge is to master professional DevOps workflows, including pull requests, history management, and branching strategies.
+
+## Objective
+The goal of this challenge is to move beyond basic commits and understand how to manage complex codebases, undo mistakes safely, and maintain a clean project history.
+
+## Topics Covered
+* Pull Requests: Effective team collaboration and code reviews.
+* Reset and Revert: Managing and undoing changes at different stages.
+* Stashing: Temporary storage of uncommitted work.
+* Cherry-picking: Applying specific commits across branches.
+* Rebasing: Maintaining a linear and clean commit history.
+* Branching Strategies: Industry-standard workflows (Git Flow, GitHub Flow, Trunk-Based).
+
+## Challenge Tasks
+
+### Task 1: Working with Pull Requests (PRs)
+* Forked the repository and cloned it locally.
+* Created a feature branch to isolate new development.
+* Pushed changes and opened a formal Pull Request on GitHub.
+* Documented the PR lifecycle, including descriptions and review handling.
+
+### Task 2: Undoing Changes - Reset and Revert
+* Explored Soft, Mixed, and Hard resets to understand how they affect the HEAD, Index, and Working Directory.
+* Utilized `git revert` to safely undo changes on public branches without rewriting history.
+
+### Task 3: Stashing
+* Used `git stash` to save incomplete work-in-progress (WIP).
+* Demonstrated switching branches and re-applying stashed changes using `git stash pop`.
+
+### Task 4: Cherry-Picking
+* Identified specific bug-fix commits using `git log`.
+* Applied individual commits to the current branch using `git cherry-pick`.
+
+### Task 5: Rebasing
+* Updated a feature branch by rebasing it onto the main branch.
+* Handled merge conflicts during the rebase process to ensure a linear history.
+
+### Task 6: Branching Strategies
+* Researched and implemented simulations for:
+    * Git Flow (Feature, Release, Hotfix).
+    * GitHub Flow (Agile, continuous delivery).
+    * Trunk-Based Development (High-velocity CI/CD).
+
+## Repository Structure
+* solution.md: Detailed technical explanations and step-by-step logs for each task.
+* scripts/: (Optional) Any scripts used during the simulation.
+
+## How to Use
+1. Clone this repository.
+2. Navigate to the solution.md file to view the detailed technical documentation for each task.
