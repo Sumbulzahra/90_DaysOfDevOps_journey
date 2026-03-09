@@ -91,8 +91,7 @@ git push origin main
 
 LinkedIn Post
 Headline: Mastered Advanced Git Workflows for DevOps
-This week, I completed the Git & GitHub Advanced Challenge as part of my #90DaysOfDevOps journey. 
-Understanding how to manage a clean history and collaborate effectively is crucial for any DevOps Engineer.
+
 
 Key highlights of what I implemented:
 1. Advanced Undo Operations: Mastered the difference between Soft, Mixed, and Hard Resets, along with safe Reverts for public branches.
