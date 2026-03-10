@@ -1,0 +1,22 @@
+Task 3: Explore Docker Terminologies and Components
+Key Docker Terminologies
+Image: A read-only template used to create containers. It includes the OS, application code, and dependencies.
+
+Container: A runtime instance of an image. It is an isolated process that runs the application.
+
+Dockerfile: A text file containing the instructions needed to build a Docker image.
+
+Volume: A persistent storage mechanism that lives outside the container, ensuring data is not lost when a container is deleted.
+
+Network: A communication layer that allows containers to talk to each other or the outside world.
+
+Main Docker Components
+Docker Engine: The client-server application that builds and runs containers. It includes the Docker Daemon (which manages objects) and the REST API.
+
+Docker Hub: A public registry (like GitHub but for images) where you can push, pull, and store your container images.
+
+Docker Desktop/CLI: The interface used by the user to send commands (like docker build or docker run) to the Docker Engine.
+
+Interaction:
+The user uses the CLI to send a command to the Docker Engine. The Engine then checks locally for the required Image. If not found, it pulls it from Docker Hub, then creates and runs the Container.
+  
