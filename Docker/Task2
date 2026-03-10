@@ -1,0 +1,38 @@
+Task 2: Create a Dockerfile for a Sample Project
+For this task, we will use a Node.js application.
+
+1. The Sample Application (index.js)
+Create a file named index.js:
+
+JavaScript 
+  const http = require('http');
+  const port = 80;
+
+  const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, Docker! This is Task 2 completion.\n');
+});
+
+  server.listen(port, () => {
+  console.log(`Server running at port ${port}`);
+});
+
+2. The Dockerfile
+Create a file named Dockerfile in the same directory:
+
+Dockerfile
+  # Step 1: Use an official lightweight Node.js image
+  FROM node:18-alpine
+
+  # Step 2: Set the working directory inside the container
+  WORKDIR /app
+
+  # Step 3: Copy the application code to the container
+  COPY index.js .
+
+  # Step 4: Expose port 80 to allow external access
+  EXPOSE 80
+
+  # Step 5: Define the command to run the application
+  CMD ["node", "index.js"]
