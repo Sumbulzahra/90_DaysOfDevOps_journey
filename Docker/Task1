@@ -1,0 +1,94 @@
+Week 5 Challenge: Docker Basics & Advanced
+
+---
+
+Task 1: Introduction and Conceptual Understanding
+Docker’s Purpose in Modern DevOps:
+Docker provides a consistent environment for applications to run across different stages of the software development lifecycle (SDLC). By packaging code with its dependencies, it eliminates the "dependency hell" often found in Linux administration, ensuring that if it works on a developer's machine, it works in production.
+
+Virtualization vs. Containerization:
+Virtualization: Requires a Hypervisor and a full Guest OS for every VM. This leads to high resource consumption and slow boot times.
+Containerization: Containers share the host’s OS kernel. They are lightweight (MBs instead of GBs) and start almost instantly.
+
+Why preferred? Containerization is ideal for microservices because you can run dozens of services on a single host. In CI/CD, containers ensure the build environment is identical every single time.
+
+----
+
+Task 2: Create a Dockerfile for a Sample Project
+For this task, we will use a Node.js application.
+
+1. The Sample Application (index.js)
+Create a file named index.js:
+
+JavaScript 
+  const http = require('http');
+  const port = 80;
+
+  const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, Docker! This is Task 2 completion.\n');
+});
+
+  server.listen(port, () => {
+  console.log(`Server running at port ${port}`);
+});
+
+2. The Dockerfile
+Create a file named Dockerfile in the same directory:
+
+Dockerfile
+  # Step 1: Use an official lightweight Node.js image
+  FROM node:18-alpine
+
+  # Step 2: Set the working directory inside the container
+  WORKDIR /app
+
+  # Step 3: Copy the application code to the container
+  COPY index.js .
+
+  # Step 4: Expose port 80 to allow external access
+  EXPOSE 80
+
+  # Step 5: Define the command to run the application
+  CMD ["node", "index.js"]
+
+3. Build and Verify
+Run these commands in your terminal:
+  Bash
+  # Build the image
+  docker build -t sachal786pro/sample-app:latest .
+
+  # Run the container
+  docker run -d -p 8080:80 --name my-task2-container sachal786pro/sample-app:latest
+
+  # Verify the container is running
+  docker ps
+
+  # Check the logs
+  docker logs my-task2-container
+
+---
+
+Task 3: Explore Docker Terminologies and Components
+Key Docker Terminologies
+Image: A read-only template used to create containers. It includes the OS, application code, and dependencies.
+
+Container: A runtime instance of an image. It is an isolated process that runs the application.
+
+Dockerfile: A text file containing the instructions needed to build a Docker image.
+
+Volume: A persistent storage mechanism that lives outside the container, ensuring data is not lost when a container is deleted.
+
+Network: A communication layer that allows containers to talk to each other or the outside world.
+
+Main Docker Components
+Docker Engine: The client-server application that builds and runs containers. It includes the Docker Daemon (which manages objects) and the REST API.
+
+Docker Hub: A public registry (like GitHub but for images) where you can push, pull, and store your container images.
+
+Docker Desktop/CLI: The interface used by the user to send commands (like docker build or docker run) to the Docker Engine.
+
+Interaction:
+The user uses the CLI to send a command to the Docker Engine. The Engine then checks locally for the required Image. If not found, it pulls it from Docker Hub, then creates and runs the Container.
+  
