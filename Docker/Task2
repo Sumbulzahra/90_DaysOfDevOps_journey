@@ -36,3 +36,17 @@ Dockerfile
 
   # Step 5: Define the command to run the application
   CMD ["node", "index.js"]
+
+Build your image using:
+  docker build -t <your-username>/sample-app:latest .
+
+Verify Your Build:
+#Run your container locally to ensure it works as expected:
+  docker run -d -p 8080:80 <your-username>/sample-app:latest
+
+#Verify the container is running with:
+  docker ps
+
+#Check logs using:
+  docker logs <container_id>
+
