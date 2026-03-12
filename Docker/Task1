@@ -1,6 +1,8 @@
 Task 1: Introduction and Conceptual Understanding
 Docker’s Purpose in Modern DevOps:
-Docker provides a consistent environment for applications to run across different stages of the software development lifecycle (SDLC). By packaging code with its dependencies, it eliminates the "dependency hell" often found in Linux administration, ensuring that if it works on a developer's machine, it works in production.
+Docker provides a consistent environment for applications to run across different stages of the software development lifecycle (SDLC).
+By packaging code with its dependencies, it eliminates the "dependency hell" often found in Linux administration,
+ensuring that if it works on a developer's machine, it works in production.
 
 Virtualization vs. Containerization:
 Virtualization: Requires a Hypervisor and a full Guest OS for every VM. This leads to high resource consumption and slow boot times.
