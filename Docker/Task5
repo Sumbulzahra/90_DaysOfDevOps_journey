@@ -1,0 +1,18 @@
+Task 5: Image Management with Docker Hub
+
+Steps Performed:
+1. **Tagging:** Versioned the optimized image from Task 4 to maintain release history.
+   ```bash
+   docker tag <your-username>/sample-app:latest <your-username>/sample-app:v1.0
+Authentication: Authenticated the Docker CLI with my Docker Hub registry.
+
+ ```bash
+docker login
+Pushing: Uploaded the image to the public registry.
+
+ ```bash
+docker push <your-username>/sample-app:v1.0
+
+Verification:
+I successfully verified the upload by removing the local image and pulling it back from Docker Hub:
+docker pull <your-username>/sample-app:v1.0
