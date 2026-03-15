@@ -1,0 +1,21 @@
+Task 6: Data Persistence with Docker Volumes
+
+Implementation:
+Containers are ephemeral by nature (data is lost when the container is deleted). 
+To solve this, I implemented Docker Volumes.
+
+Created a Volume: 
+'''bash
+docker volume create my_volume
+
+Mounted the Volume: 
+Ran the container with the -v flag to map the host volume to the container path.
+Bash
+docker run -d -p 8080:80 -v my_volume:/app/data <your-username>/sample-app:v1.0
+
+Why use Volumes?
+Data Persistence: Critical for databases or log files; data survives container restarts and deletions.
+
+Decoupling: Separates the application code (image) from the data (volume).
+
+Portability: Volumes can be easily backed up or migrated between containers.
