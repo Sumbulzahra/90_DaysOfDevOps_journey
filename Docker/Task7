@@ -1,0 +1,20 @@
+Task 7: Configure Docker Networking
+In this task, I moved beyond standalone containers to a networked architecture. 
+Isolation is a core security feature of Docker, but services often need to communicate.
+
+Implementation Steps:
+Created a bridge network: 
+```bash
+docker network create my_network
+
+Deployed the Database: 
+Launched a MySQL container attached to the custom network.
+```bash
+docker run -d --name my-db --network my_network -e MYSQL_ROOT_PASSWORD=root mysql:latest
+
+Deployed the Application: Connected the Node.js app to the same network.
+```bash
+docker run -d --name sample-app --network my_network learningwithjunoon/sample-app:v1.0
+
+Key Insight: By using a custom network, I enabled Service Discovery. 
+The application can connect to the database using the hostname my-db instead of a fluctuating IP address.
