@@ -1,0 +1,18 @@
+Task 9: Analyze Your Image with Docker Scout
+
+This is where you prove your image is production-ready.
+As a DevOps professional, security is a "Shift Left" priority. 
+I analyzed my image to identify and mitigate vulnerabilities.
+
+Security Posture Report:
+I executed a vulnerability scan using Docker Scout:
+docker scout quickview <your-username>/sample-app:v1.0
+
+Get the details:
+docker scout cves <your-username>/sample-app:v1.0 > scout_report.txt
+
+
+Analysis & Remediation:
+Observation: Because I used a Multi-Stage build with a Slim/Alpine base in Task 4,
+the number of vulnerabilities was significantly lower than standard images.
+Action: I ensured the base image was updated to the latest patch version to resolve high-severity CVEs identified in the report.
