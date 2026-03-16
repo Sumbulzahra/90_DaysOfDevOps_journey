@@ -1,1 +1,35 @@
+Task 8: Orchestration with Docker Compose
 
+To simplify the management of multi-container applications, I implemented Docker Compose. 
+This allows for "Infrastructure as Code" (IaC) by defining the entire environment in a single YAML file.
+
+docker-compose.yml Configuration:
+YAML
+version: '3.8'
+services:
+  app:
+    image: learningwithjunoon/sample-app:v1.0
+    ports:
+      - "8080:80"
+    networks:
+      - dev-network
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - dev-network
+networks:
+  dev-network:
+    driver: bridge
+volumes:
+  db_data:
+
+
+Execution:
+Spin up services: docker-compose up -d
+Tear down services: docker-compose down
