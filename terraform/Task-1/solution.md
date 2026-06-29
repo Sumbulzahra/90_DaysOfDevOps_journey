@@ -121,11 +121,13 @@ resource "aws_instance" "devops_node" {
 Step 3: Validation & Execution Lifecycle
 Execute the deployment lifecycle commands sequentially within the root directory containing your main.tf file: 
 1. Initialize Working Directory
+
 Bash
 terraform init
 Downloads the specific AWS provider plugins and locks version requirements in .terraform.lock.hcl.
 
 2. Format & Linting Validation
+
 Bash
 # Canonicalize styles to match HashiCorp standard rules
 terraform fmt
@@ -137,18 +139,21 @@ Expected Output:
 Success! The configuration is valid.
 
 3. Execution Plan Compilation
+
 Bash
 terraform plan -out=deploy.tfplan
 Generates an explicit execution blueprint detailing precisely which elements will be created, updated,
 or destroyed without modifying live clouds.
 
 4. Apply Changes to the Cloud
+
 Bash
 terraform apply deploy.tfplan
 Executes structural cloud tasks synchronously and pipes back deployment metadata outputs.
 
 Step 4: Resource Cleanup
 To prevent ongoing billing charges on your cloud account, destroy the provisioned computing nodes when testing finishes:
+
 Bash
 terraform destroy
 Prompts for authorization confirmation before systematically wiping the assigned resource blocks.
